@@ -1,5 +1,5 @@
-<header class="">
-    <h1>PALETS ÉPILA</h1>
+<header class="md:h-15v bg-blue-300
+    flex flex-col md:flex-row justify-between px-3 items-center">
 
     <div>
         @auth()
