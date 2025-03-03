@@ -1,4 +1,4 @@
-<header class="md:h-15v bg-blue-300
+<header class="md:h-15v bg-sky-950
     flex flex-col md:flex-row justify-between px-3 items-center">
 
     <div>

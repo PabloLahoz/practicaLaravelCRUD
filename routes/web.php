@@ -12,6 +12,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::view("/","home")->name("home");
+Route::view("/about","about")->name("about");
+Route::view("/contacto","contacto")->name("contacto");
+Route::view("/news","news")->name("news");
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

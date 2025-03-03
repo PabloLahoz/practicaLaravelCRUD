@@ -1,6 +1,6 @@
 <x-layouts.layout>
     @guest()
-        <div class="text-center">
+        <div class="text-center min-h-full">
             <div class="max-w-md">
                 <h1 class="font-bold">Empresa del sector de palets</h1>
                 <p>Empresa nº 1 de Aragón</p>
