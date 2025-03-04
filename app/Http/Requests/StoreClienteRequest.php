@@ -11,7 +11,7 @@ class StoreClienteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class StoreClienteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "nombre" => "required|string|max:30",
+            "email" => "required|email|unique:clientes,email",
+            "telefono" => "required|string|min:9|max:9",
+            "direccion" => "required|string",
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'El nombre es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.unique' => 'Este correo ya está registrado.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
         ];
     }
 }

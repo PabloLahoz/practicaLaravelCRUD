@@ -13,7 +13,12 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $campos = Schema::getColumnListing('clientes');
+        $exclude = ["created_at", "updated_at"];
+        $campos = array_diff($campos, $exclude);
+        $filas = Cliente::select($campos)->get();
+        return view('clientes.index', compact('filas', 'campos'));
+
     }
 
     /**
@@ -21,7 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
 
     /**
@@ -29,7 +34,10 @@ class ClienteController extends Controller
      */
     public function store(StoreClienteRequest $request)
     {
-        //
+        $datos = $request->only("nombre","email","telefono","direccion");
+        $alumno = new Cliente($datos);
+        $alumno->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -37,7 +45,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('clientes.show', compact('cliente'));
     }
 
     /**
@@ -45,7 +53,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -53,7 +61,8 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
-        //
+        $cliente->update($request->input());
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -61,6 +70,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->route('clientes.index');
     }
 }
