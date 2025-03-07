@@ -12,14 +12,14 @@
         <div class="card card-compact bg-base-100 w-96 shadow-xl">
             <figure>
                 <img
-                    src="{{asset("/images/gestion.jpg")}}"
+                    src="{{asset("/images/clientes.jpg")}}"
                     alt="Gestion"/>
             </figure>
             <div class="card-body">
-                <h2 class="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 class="card-title">Clientes</h2>
+                <p>Gestión tabla clientes</p>
                 <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <a class="btn btn-primary" href="{{route("clientes.index")}}">Ver clientes</a>
                 </div>
             </div>
         </div>
