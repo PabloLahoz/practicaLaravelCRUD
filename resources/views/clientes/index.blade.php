@@ -46,4 +46,20 @@
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete(id) {
+            swal({
+                title: "¿Confirmar borrado?",
+                text: "Esta acción no se puede deshacer",
+                icon: "warning",
+                buttons: true
+            }).then(function (ok) {
+                if (ok) {
+                    let formulario = document.getElementById("formulario" + id);
+                    formulario.submit();
+                }
+            })
+
+        }
+    </script>
 </x-layouts.layout>
