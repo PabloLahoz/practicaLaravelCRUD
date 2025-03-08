@@ -11,4 +11,8 @@ class Cliente extends Model
     use HasFactory;
 
     public $fillable = ["nombre","email","telefono","direccion"];
+
+    public function pedidos() {
+        return $this->hasMany(Pedido::class);
+    }
 }

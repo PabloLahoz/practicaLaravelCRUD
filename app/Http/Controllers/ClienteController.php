@@ -35,7 +35,7 @@ class ClienteController extends Controller
      */
     public function store(StoreClienteRequest $request)
     {
-        $datos = $request->only("nombre","email","telefono","direccion");
+        $datos = $request->validated();
         $alumno = new Cliente($datos);
         $alumno->save();
         return redirect()->route('clientes.index');
@@ -62,7 +62,7 @@ class ClienteController extends Controller
      */
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
-        $cliente->update($request->input());
+        $cliente->update($request->validated());
         return redirect()->route('clientes.index');
     }
 
