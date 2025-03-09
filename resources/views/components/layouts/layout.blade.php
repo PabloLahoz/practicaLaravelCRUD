@@ -8,10 +8,10 @@
     <title>{{$titulo ?? ""}}</title>
     @vite (["resources/css/app.css","resources/js/app.js"])
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 <x-layouts.header/>
 <x-layouts.nav/>
-<main class="h-65v bg-main">
+<main class="bg-white flex-grow p-4">
     {{$slot}}
 </main>
 <x-layouts.footer/>

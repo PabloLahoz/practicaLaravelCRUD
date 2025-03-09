@@ -1,6 +1,8 @@
-<nav class="md:h-10v bg-green-950">
-    <a class="btn btn-sm btn-primary" href="{{route("home")}}">Inicio</a>
-    <a class="btn btn-sm btn-primary" href="{{route("news")}}">News</a>
-    <a class="btn btn-sm btn-primary" href="{{route("about")}}">About</a>
-    <a class="btn btn-sm btn-primary" href="{{route("contacto")}}">Contacto</a>
+<nav class="md:h-12 bg-green-900 flex items-center">
+    <div class="ml-4 space-x-1">
+        <a class="px-4 py-2 text-white bg-yellow-950 rounded hover:bg-amber-900" href="{{route("home")}}">{{__("Inicio")}}</a>
+        <a class="px-4 py-2 text-white bg-yellow-950 rounded hover:bg-amber-900" href="{{route("news")}}">{{__("Noticias")}}</a>
+        <a class="px-4 py-2 text-white bg-yellow-950 rounded hover:bg-amber-900" href="{{route("about")}}">{{__("Conócenos")}}</a>
+        <a class="px-4 py-2 text-white bg-yellow-950 rounded hover:bg-amber-900" href="{{route("contacto")}}">{{__("Contacto")}}</a>
+    </div>
 </nav>

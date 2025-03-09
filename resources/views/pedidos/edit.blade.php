@@ -1,10 +1,10 @@
 <x-layouts.layout>
-    <div class="flex flex-row justify-center items-center min-h-full bg-gray-300">
+    <div class="flex flex-row justify-center items-center min-h-full bg-white">
         <!-- Session Status -->
         <form action="{{ route('pedidos.update', $pedido->id) }}" method="POST">
             @method('PUT')
             @csrf
-            <div class="bg-white rounded-2xl p-5">
+            <div class="bg-white rounded-2xl p-5 shadow-md">
                 <!-- Cliente -->
                 <div>
                     <x-input-label for="cliente_id" value="Cliente"/>
@@ -84,8 +84,8 @@
 
                 <!-- Botones -->
                 <div class="p-2">
-                    <button class="btn btn-sm btn-success" type="submit">Guardar</button>
-                    <a class="btn btn-sm btn-success" href="{{ route('pedidos.index') }}">Cancelar</a>
+                    <button class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" type="submit">{{__("Guardar")}}</button>
+                    <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{ route('pedidos.index') }}">{{__("Cancel")}}</a>
                 </div>
             </div>
         </form>

@@ -1,7 +1,7 @@
 <x-layouts.layout>
     <div class="p-2 border-gray-200">
-        <a class="btn btn-sm btn-secondary" href="{{route("home")}}">Volver</a>
-        <a class="btn btn-sm btn-secondary" href="{{route("clientes.create")}}">Crear cliente</a>
+        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("home")}}">{{__("Volver")}}</a>
+        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("clientes.create")}}">{{__("Crear cliente")}}</a>
     </div>
     <div class="max-h-full overflow-x-auto">
         <table class="table table-xs table-pin-rows table-pin-cols">

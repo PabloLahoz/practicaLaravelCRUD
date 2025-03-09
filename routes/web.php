@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ Route::view("/news","news")->name("news");
 
 Route::resource('clientes', ClienteController::class);
 Route::resource('pedidos', PedidoController::class);
-
+Route::get('language/{locale}', LanguageController::class)->name('language');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
