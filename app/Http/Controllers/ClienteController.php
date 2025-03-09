@@ -38,7 +38,7 @@ class ClienteController extends Controller
         $datos = $request->validated();
         $alumno = new Cliente($datos);
         $alumno->save();
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with('success', 'Cliente creado correctamente.');
     }
 
     /**
@@ -63,7 +63,7 @@ class ClienteController extends Controller
     public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
         $cliente->update($request->validated());
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
     }
 
     /**
@@ -72,6 +72,6 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }

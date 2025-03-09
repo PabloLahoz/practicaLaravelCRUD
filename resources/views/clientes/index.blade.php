@@ -1,7 +1,14 @@
 <x-layouts.layout>
+    @if (session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="p-2 border-gray-200">
-        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("home")}}">{{__("Volver")}}</a>
-        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("clientes.create")}}">{{__("Crear cliente")}}</a>
+        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200"
+           href="{{route("home")}}">{{__("Volver")}}</a>
+        <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200"
+           href="{{route("clientes.create")}}">{{__("Crear cliente")}}</a>
     </div>
     <div class="max-h-full overflow-x-auto">
         <table class="table table-xs table-pin-rows table-pin-cols">
@@ -21,7 +28,7 @@
                     <td>
                         <a href="{{route('clientes.edit',$fila->id)}}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                                  stroke="currentColor" class="hover:text-blue-600 size-6">
+                                 stroke="currentColor" class="hover:text-blue-600 size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                       d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
                             </svg>
@@ -29,7 +36,8 @@
                     </td>
 
                     <td>
-                        <form onsubmit=event.preventDefault() id="formulario{{$fila->id}}" action="{{route("clientes.destroy",$fila->id)}}" method="POST">
+                        <form onsubmit=event.preventDefault() id="formulario{{$fila->id}}"
+                              action="{{route("clientes.destroy",$fila->id)}}" method="POST">
                             @csrf
                             @method("DELETE")
                             <button onclick="confirmDelete({{$fila->id}})">
@@ -61,5 +69,10 @@
             })
 
         }
+
+        setTimeout(() => {
+            document.getElementById('success-message').style.display = 'none';
+        }, 3000); // Se oculta después de 3 segundos
+
     </script>
 </x-layouts.layout>

@@ -38,7 +38,7 @@ class PedidoController extends Controller
     {
         $datos = $request->validated();
         Pedido::create($datos);
-        return redirect()->route('pedidos.index');
+        return redirect()->route('pedidos.index')->with('success', 'Pedido creado correctamente.');
     }
 
     /**
@@ -65,7 +65,7 @@ class PedidoController extends Controller
     {
         $datos = $request->validated();
         $pedido->update($datos);
-        return redirect()->route('pedidos.index');
+        return redirect()->route('pedidos.index')->with('success', 'Pedido actualizado correctamente.');
     }
 
     /**
@@ -74,6 +74,6 @@ class PedidoController extends Controller
     public function destroy(Pedido $pedido)
     {
         $pedido->delete();
-        return redirect()->route('pedidos.index');
+        return redirect()->route('pedidos.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }

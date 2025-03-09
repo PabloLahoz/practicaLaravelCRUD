@@ -1,4 +1,9 @@
 <x-layouts.layout>
+    @if (session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="p-2 border-gray-200">
         <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("home")}}">{{__("Volver")}}</a>
         <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{route("pedidos.create")}}">{{__("Crear pedido")}}</a>
@@ -61,5 +66,9 @@
             })
 
         }
+
+        setTimeout(() => {
+            document.getElementById('success-message').style.display = 'none';
+        }, 3000); // Se oculta después de 3 segundos
     </script>
 </x-layouts.layout>

@@ -1,7 +1,7 @@
 <x-layouts.layout>
     <div class="flex flex-row justify-center items-center min-h-full bg-white">
         <!-- Session Status -->
-        <form action="{{ route('pedidos.update', $pedido->id) }}" method="POST">
+        <form id="formulario" action="{{ route('pedidos.update', $pedido->id) }}" method="POST">
             @method('PUT')
             @csrf
             <div class="bg-white rounded-2xl p-5 shadow-md">
@@ -84,10 +84,27 @@
 
                 <!-- Botones -->
                 <div class="p-2">
-                    <button class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" type="submit">{{__("Guardar")}}</button>
+                    <button class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" type="button" onclick="confirmUpdate()">{{__("Guardar")}}</button>
                     <a class="px-4 py-2 text-black bg-gray-300 rounded hover:bg-gray-200" href="{{ route('pedidos.index') }}">{{__("Cancel")}}</a>
                 </div>
             </div>
         </form>
     </div>
+
+    <script>
+        function confirmUpdate() {
+            swal({
+                title: "¿Confirmar actualización?",
+                text: "Esta acción no se puede deshacer",
+                icon: "warning",
+                buttons: ["Cancelar", "Sí, actualizar"],
+                dangerMode: true
+            }).then(function (willUpdate) {
+                if (willUpdate) {
+                    let formulario = document.getElementById("formulario");
+                    formulario.submit();
+                }
+            })
+        }
+    </script>
 </x-layouts.layout>
